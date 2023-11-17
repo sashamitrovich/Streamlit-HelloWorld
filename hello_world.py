@@ -1,8 +1,7 @@
 import streamlit as st
+
 import pandas as pd
 import numpy as np
-
-
    
 st.write("# My 1st Streamlit App")
 st.write("Hello, *World!* :sunglasses:")
@@ -16,7 +15,7 @@ df = pd.DataFrame(
 np.random.randn(10, 5),
 columns=('col %d' % i for i in range(5)))
 
-st.table(df)
+# st.table(df)
 
 # st.write(df)
 # df
@@ -28,7 +27,7 @@ df = pd.DataFrame(
     {"command": "st.time_input", "rating": 3, "is_widget": True},
 ]
 )
-edited_df = st.data_editor(df)
+edited_df = st.data_editor(df, num_rows="dynamic")
 
 favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
 st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
@@ -74,16 +73,16 @@ with st.sidebar:
         ("Standard (5-15 days)", "Express (2-5 days)")
     )
 
-# tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
+tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
 
-# with tab1:
-#    st.header("A cat")
-#    st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
+with tab1:
+   st.header("A cat")
+   st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
 
-# with tab2:
-#    st.header("A dog")
-#    st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
+with tab2:
+   st.header("A dog")
+   st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
 
-# with tab3:
-#     st.header("An owl")
-#     st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+with tab3:
+    st.header("An owl")
+    st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
