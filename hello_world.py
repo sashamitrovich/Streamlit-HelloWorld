@@ -6,6 +6,8 @@ import numpy as np
 st.write("# My 1st Streamlit App")
 st.write("Hello, *World!* :sunglasses:")
 
+# "This works, too"
+
 age = st.slider('How old are you?', 25, 130, 30)
 st.write("I'm ", age, 'years old')
 
@@ -15,9 +17,9 @@ df = pd.DataFrame(
 np.random.randn(10, 5),
 columns=('col %d' % i for i in range(5)))
 
-# st.table(df)
+st.table(df)
 
-# st.write(df)
+# # st.write(df)
 # df
 
 df = pd.DataFrame(
@@ -32,7 +34,7 @@ edited_df = st.data_editor(df, num_rows="dynamic")
 favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
 st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
 
-
+# @st.cache_data
 def rand_data():
     df = pd.DataFrame(
         np.random.randn(20, 3),
